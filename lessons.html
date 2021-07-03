@@ -55,14 +55,21 @@
               <h1>Cours</h1>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row mb-3">
+          <div class="col">
+             <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+          </div>
+       </div>
+
+        <div class="row" id="lessonList">
             <div class="col-12 col-lg-4">
                 
                     <div class="card">
                         <img class="card-img-top" src="./cours/css.jpeg" alt="css">
                         <div class="card-body">
-                            <h5 class="card-title">Titre de la carte</h5>
-                            <p class="card-text">Contenu textuel de la carte</p>
+                            <h5 class="card-title">Créez des animations CSS</h5>
+                            <p class="card-text">Vous allez plonger dans le mondes des animations CSS pour donner vie à vos pages web !</p>
                             <a class="btn btn-primary stretched-link" href="lesson-1.html" role="button">Démarrer l'apprentissage</a>
                         </div>
                     </div>
@@ -72,8 +79,8 @@
                 <div class="card">
                     <img class="card-img-top" src="./cours/js.jpeg" alt="js">
                     <div class="card-body">
-                        <h5 class="card-title">Titre de la carte</h5>
-                        <p class="card-text">Contenu textuel de la carte</p>
+                        <h5 class="card-title">Programmer avec JavaScript</h5>
+                        <p class="card-text">Ce cours est concu pour vous enseigner les bases du language de programmation JavaScript.</p>
                         <a class="btn btn-primary stretched-link" href="#" role="button">Démarrer l'apprentissage</a>
                     </div>
                 </div>
@@ -82,8 +89,8 @@
                 <div class="card">
                     <img class="card-img-top" src="./cours/swift.jpeg" alt="swift">
                     <div class="card-body">
-                        <h5 class="card-title">Titre de la carte</h5>
-                        <p class="card-text">Contenu textuel de la carte</p>
+                        <h5 class="card-title">Les fondamentaux de Swift</h5>
+                        <p class="card-text">Découvrez le fonctionnement IOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
                         <a class="btn btn-primary stretched-link" href="#" role="button">Démarrer l'apprentissage</a>
                     </div>
                 </div>
@@ -122,6 +129,19 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
   crossorigin="anonymous"></script>
+<!-- filtre la liste -->
+
+<script>
+  $(document).ready(function(){
+     $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#lessonList .col-12").filter(function() {
+           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+     });
+  });
+</script>
+
 
 </body>
 
